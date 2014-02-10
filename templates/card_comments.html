@@ -1,0 +1,9 @@
+$def with (comments)
+
+<ul class="unstyled">
+$for comment in comments:
+	<li class="comment" id="$comment['_id']">
+		<div>$comment['value']</div>
+		<div class="text-right comment-about">by $comment['author'] $comment['date'].day/$comment['date'].month/$comment['date'].year $comment['date'].hour:$comment['date'].minute</div>
+	</li>
+</ul>

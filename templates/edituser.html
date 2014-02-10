@@ -1,0 +1,18 @@
+$def with (user_id, form)
+
+$:render_part.header()
+
+<div class="container">
+	<div class="row">
+		<div class="offset3 span4">
+			<div class="main" id="main" role="main">
+				<h2>Edit user</h2>
+				<form action="/user/edit/$user_id" method="post">
+					$:form.render()
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+$:render_part.footer()

@@ -1,0 +1,55 @@
+$def with (board, tasklists, cards)
+
+$:render_part.header()
+
+<!-- new card modal -->
+<div id="newCardModal" class="modal hide" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+		<h3 id="myModalLabel">Add card</h3>
+	</div>
+	<div class="modal-body">
+	</div>
+</div>
+
+<div class="container-fluid">
+	<div class="row-fluid">
+		<header class="span9">
+			<div class="board-header">
+				<h1 class="board-title">
+					<a href="/board/$board['_id']/edit/">$board['title']</a>
+					<small>$board['description']</small>
+				</h1>
+			</div>
+		</header>
+		<div class="span3">
+			<div class="text-right board-header board-actions">
+				<a href="/board/$board['_id']/tasklist/add" class="btn btn-mini tooltip-link" data-original-title="Add task list" data-placement="top" data-toggle="tooltip"><i class="icon-plus"></i></a>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="container-fluid board-container">
+	<div class="board">
+		<div class="row">
+		$for tasklist in tasklists:
+			<article class="span3">
+				<div class="tasklist-container">
+					<h2 class="tasklist-title"><a href="/board/$board['_id']/tasklist/$tasklist['_id']/edit/">$tasklist['title']</a></h2>
+					<p class="muted tasklist-description">$tasklist['description']</p>
+					<div class="text-right tasklist-actions">
+						<a href="/board/$board['_id']/tasklist/$tasklist['_id']/card/add" class="btn btn-mini" data-toggle="modal" data-target="#newCardModal"><i class="icon-plus"></i></a>
+					</div>
+					<div id="$tasklist['_id']" class="card-dropable">
+						$:cards[tasklist['_id']]
+					</div>
+				</div>
+			</article>
+		</div>
+	</div>
+</div>
+
+$:render_part.footer()
+
+<script src="/static/js/add_card.js"></script>

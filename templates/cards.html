@@ -1,0 +1,7 @@
+$def with (cards)
+
+$for card in cards:
+	<div class="card" id="$card['_id']">
+		<h3 class="card-title"><a href="/card/$card['_id']/edit/">$card['title']</a></h3>
+		<p class="card-description">$card['description']</p>
+	</div>

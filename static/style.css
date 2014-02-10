@@ -1,0 +1,55 @@
+ html, body {}
+
+ .footer {padding: 3px 0;}
+
+.navbar {margin-bottom: 7px;}
+.nav {margin: 0;}
+
+/* index */
+
+.index-container {margin: 0; padding: 15px; overflow: hidden; background-color: #f7f7f7; border: 1px solid #ccc; -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px;}
+
+/* board */
+
+.board {position: relative; left: 0; width: 100%;}
+h1.board-title {margin:0; padding: 0; font-size: 21px; line-height: 21px;}
+h1.board-title small {font-size: 17px;}
+.board-header {margin: 0; padding: 7px 15px;}
+.board-container {min-height: 5px; margin: 0 15px; background: #777; border: 1px solid #777; -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;}
+div.board {height: 500px; max-height: 500px; overflow-x: auto; overflow-y: auto; white-space: nowrap;}
+div.board [class*="span"] {display: inline-block; vertical-align: top; float: none; white-space: normal;}
+
+/* tasklists */
+
+.tasklist-container {margin: 7px 0; padding: 7px 5px; background-color: #f7f7f7; border: 1px solid #f7f7f7; -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px;}
+h2.tasklist-title {margin: 0; padding: 0; font-size: 15px; font-weight: bold; line-height: 15px;}
+p.tasklist-description {margin: 3px 0; font-size: 13px;}
+.tasklist-actions {margin: 3px 0 7px 0;}
+.tasklist-pop:hover {cursor: pointer;}
+.card-dropable {min-height: 50px;}
+
+/* cards */
+
+.card {margin: 3px 0; padding: 7px 5px; overflow: hidden; background-color: #fff; border: 1px solid #ccc; -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px;}
+.card-title {margin: 0; padding: 0 7px; font-size: 15px; font-weight: bold; line-height: 15px; overflow: hidden; -o-text-overflow: ellipsis; text-overflow: ellipsis;}
+p.card-description {margin: 0; padding: 7px; color: #777; font-size: 13px; -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px;}
+
+/* edits */
+
+.edit-actions {margin-bottom: 5px;}
+.edit-container {margin: 3px 0; padding: 7px; overflow: hidden; background-color: #f7f7f7; border: 1px solid #ccc; -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px;}
+.edit-title {margin: 0; padding: 0 0 15px 0; text-align: center; font-size: 17px; font-weight: bold; line-height: 15px; overflow: hidden; -o-text-overflow: ellipsis; text-overflow: ellipsis;}
+.edit-title small {font-size: 13px;}
+.edit-input {width: 100%;}
+.edit-textarea {height: 120px; width:100%;}
+.edit-file-about {font-size: 11px; color: #777;}
+
+a.remove {color: #999; font-weight: bold; font-size: 15px; line-height: 15px;}
+a.remove:hover {color: #777; text-decoration: none;}
+
+/*  comments */
+
+.card-comments-container {max-height: 500px; overflow: hidden; overflow-y: auto;}
+.comment-textarea {height: 50px; width:250px;}
+.comment {width: 100%; margin: 0 0 3px 0; padding: 0 0 3px 0; border-bottom: 1px dotted #a7a7a7;}
+.comment-about {color: #777; font-size: 11px;}

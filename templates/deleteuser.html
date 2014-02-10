@@ -1,0 +1,21 @@
+$def with (user_id, form)
+
+$:render_part.header()
+
+<div class="container">
+	<div class="row">
+		<div class="span3">
+			<div class="pull-left"><a href="/" class="btn"><i class="icon-arrow-left"></i> Back</a></div>
+		</div>
+		<div class="span6">
+			<div class="edit-container">
+				<h1 class="edit-title">Delete user</h1>
+				<form action="/user/delete/$user_id" method="post">
+					Are you sure ? $:form.delete.render()
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+$:render_part.footer()

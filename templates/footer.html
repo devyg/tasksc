@@ -1,0 +1,20 @@
+<div class="container footer">
+	<div class="row">
+		<footer class="span12" role="contentinfo">
+			<p class="text-center muted">$app_name v$version $year by $author</p>
+		</footer>
+	</div>
+</div>
+
+<script src="/static/js/jquery.min.js"></script>
+<script src="/static/jquery-ui/jquery-ui-1.9.2.custom.min.js"></script>
+<script src="/static/jquery-ui/jquery.ui.datepicker-fr.js"></script>
+<script src="/static/bootstrap/js/bootstrap.min.js"></script>
+<script src="/static/js/jasny-bootstrap.min.js"></script>
+
+<script>
+$$(function() {
+	$$('.tooltip-link').tooltip();
+	$$('.input-date').datepicker($$.datepicker.regional['fr']);
+});
+</script>

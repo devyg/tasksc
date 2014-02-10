@@ -1,0 +1,6 @@
+$def with (card_id, form)
+
+<form action="/card/$card_id/comment/add/" method="post" id="card-comment-add-form" class="form">
+	<div>$:form.comment.render()</div>
+	<div class="text-right">$:form.add.render()</div>
+</form>

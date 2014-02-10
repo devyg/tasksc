@@ -1,0 +1,18 @@
+$def with (board_id, form)
+
+$:render_part.header()
+
+<div class="container">
+	<div class="row">
+		<div class="offset3 span4 well">
+			<div class="main" id="main" role="main">
+				<h2>Delete board</h2>
+				<form action="/board/delete/$board_id" method="post">
+					Are you sure ? All associated tasks lists and cards will be deleted too. $:form.delete.render()
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+$:render_part.footer()

@@ -1,0 +1,92 @@
+$def with (card, form, tasklists)
+
+$:render_part.header()
+
+<div class="container">
+	<div class="row edit-actions">
+		<div class="span3">
+			<a href="/board/$card['board_id']/" class="btn"><i class="icon-arrow-left"></i> Back to board</a>
+		</div>
+		<div class="span6">
+			<ul class="nav nav-pills">
+			$if tasklists['others'].count():
+				<li class="dropdown">
+					<a class="dropdown-toggle" data-toggle="dropdown" role="button" href="#">Move to list <span class="caret"></span></a>
+					<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+					$for tl in tasklists['others']:
+						<li><a href="/card/$card['_id']/move/list/$tl['_id']/">$tl['title']</a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+		<div class="span3">
+			<div class="pull-right">
+				<a href="/card/$card['_id']/archive/" class="btn"><i class="icon-briefcase"></i> Archive</a>
+				<!--<a href="/card/$card['_id']/delete/" class="btn btn-small"><i class="icon-remove"></i> Delete</a>-->
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="span5">
+			<div class="edit-container">
+				<h1 class="edit-title">Edit card<br><small>$tasklists['card']</small></h1>
+				<form action="/card/$card['_id']/edit/" method="post">
+					$:form.render()
+				</form>
+			</div>
+		</div>
+		<div class="span4">
+			<div class="edit-container card-comments-container">
+				<h2 class="edit-title">Comments</h2>
+				<div id="card-comment-add"></div>
+				<div id="card-comments" data-card-id="$card['_id']"></div>
+			</div>
+		</div>
+		<div class="span3">
+			<div class="row">
+				<div class="span3">
+					<div class="edit-container">
+						<h2 class="edit-title">Attached files</h2>
+						<ul class="unstyled">
+						$for f in card['files'][::-1]:
+							<li>
+								<div>
+									<a href="/card/$card['_id']/file/$f['id']/get/">$f['name']</a>
+									<div class="pull-right"><a href="/card/$card['_id']/file/$f['id']/delete/" class="remove tooltip-link" data-original-title="Remove file" data-placement="top" data-toggle="tooltip">x</a></div>
+								</div>
+								<div>
+									<span class="edit-file-about">by $f['uploader'] $f['date'].day/$f['date'].month/$f['date'].year $f['date'].hour:$f['date'].minute:$f['date'].second</span>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="span3">
+					<div class="edit-container">
+						<form class="fileupload fileupload-new" data-provides="fileupload" method="post" enctype="multipart/form-data" action="/card/$card['_id']/file/upload/">
+							<div class="text-center">
+								<span class="btn btn-file">
+									<span class="fileupload-new">Select file</span>
+									<span class="fileupload-exists">Change</span>
+
+									<input type="file" name="cardfile" id="cardfile" />
+								</span>
+								<button type="submit" class="btn">Upload</button>
+							</div>
+							<div class="text-center">
+								<span class="fileupload-preview"></span>
+								<a href="#" class="close fileupload-exists" data-dismiss="fileupload" style="float: none">×</a>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+$:render_part.footer()
+
+<script src="/static/js/card_comments.js"></script>

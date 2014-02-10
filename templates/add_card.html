@@ -1,0 +1,5 @@
+$def with (board_id, tasklist_id, form)
+
+<form action="/board/$board_id/tasklist/$tasklist_id/card/add" method="post" id="addCardForm" data-board-id=$board_id data-tasklist-id=$tasklist_id>
+	$:form.render()
+</form>

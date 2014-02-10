@@ -1,0 +1,49 @@
+$def with (users, boards)
+$:render_part.header()
+
+<div class="container">
+	<div class="row">
+		<div class="span6">
+			<div class="index-container">
+				<h1 class="edit-title">Users</h1>
+				<p class="text-right"><a href="/user/add/"><i class="icon-plus"></i></a></p>
+				<table class="table table-striped" data-provides="rowlink">
+				<tr>
+					<th>Name</th>
+					<th>Login</th>
+					<th>E-mail</th>
+					<th></th>
+				</tr>
+				$for user in users:
+					<tr>
+						<td>
+							<a href="/user/edit/$user['_id']" >$user['name']</a>
+						</td>
+						<td>$user['login']</td>
+						<td>$user['email']</td>
+						<td class="nolink"><a href="/user/delete/$user['_id']" class="tooltip-link" data-original-title="Delete user" data-placement="top" data-toggle="tooltip"><i class="icon-remove"></i></a></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div class="span6">
+			<div class="index-container">
+				<h1 class="edit-title">Boards</h1>
+				<p class="text-right"><a href="/board/add/"><i class="icon-plus"></i></a></p>
+				<table class="table table-striped" data-provides="rowlink">
+				<tr>
+					<th>Title</th>
+					<th>Description</th>
+				</tr>
+				$for board in boards:
+					<tr>
+						<td><a href="/board/$board['_id']/">$board['title']</a></td>
+						<td>$board['description']</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+
+$:render_part.footer()

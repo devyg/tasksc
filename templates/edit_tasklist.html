@@ -1,0 +1,27 @@
+$def with (board_id, tasklist_id, form)
+
+$:render_part.header()
+
+<div class="container">
+	<div class="row">
+		<div class="span3">
+			<div class="pull-left"><a href="/board/$board_id/" class="btn"><i class="icon-arrow-left"></i> Back to board</a></div>
+		</div>
+		<div class="span6">
+			<div class="edit-container">
+				<h1 class="edit-title">Edit task list</h1>
+				<form action="/board/$board_id/tasklist/$tasklist_id/edit/" method="post">
+					$:form.render()
+				</form>
+			</div>
+		</div>
+		<div class="span3">
+			<div class="pull-right">
+				<a href="/board/$board_id/tasklist/$tasklist_id/archive/" class="btn"><i class="icon-briefcase"></i> Archive</a>
+				<!--<a href="/board/$board_id/tasklist/$tasklist_id/delete/" class="btn btn-small"><i class="icon-remove"></i> Delete</a>-->
+			</div>
+		</div>
+	</div>
+</div>
+
+$:render_part.footer()

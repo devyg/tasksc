@@ -1,0 +1,18 @@
+$def with (board_id, id, form)
+
+$:render_part.header()
+
+<div class="container">
+	<div class="row">
+		<div class="offset3 span4 well">
+			<div class="main" id="main" role="main">
+				<h2>Archive task list</h2>
+				<form action="/board/$board_id/tasklist/$id/archive/" method="post">
+					All associated cards will be archived too. $:form.archive.render()
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+$:render_part.footer()
